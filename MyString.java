@@ -114,14 +114,17 @@ public class MyString {
      */
     public static String remove(String str1, String str2) {
        String result="";
+      
        for(int i=0; i< str1.length();i++){
         char curChar = str1.charAt(i);
-            if(str2.indexOf(curChar) == -1){
-                result += curChar;
-            }
+        if (str2.indexOf(curChar) != -1) {
+            str2 = str2.substring(0, str2.indexOf(curChar)) + str2.substring(str2.indexOf(curChar) + 1);
+        } else {
+            result += curChar;
         }
-        return result;
-     }
+    }
+       return result;
+}
 
 
     /**
