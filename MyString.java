@@ -44,22 +44,28 @@ public class MyString {
     public static boolean subsetOf(String str1, String str2) {
         int len1 = str1.length();
         int len2 = str2.length();
-        boolean isSubset=true;
-        if(len1>len2){
+        int startIndex = 0;
+        if(len1 == 0) {
+            return true;
+        }  
+        if(len1 > len2){
             return false;
         }
-        for(int i=0; i<=len2-len1; i++){
-                for(int j=0; j<len1;j++){
-                    if(str1.charAt(j) != str2.charAt(i+j)){
-                        isSubset=false;
-                        break;
-                    }
+        for(int i=0; i<len1; i++){
+            char curChar1 = str1.charAt(i);
+            boolean found = false;
+            for(int j= startIndex; j<len2; j++){
+                if(str2.charAt(j) == curChar1){
+                    startIndex = j+1;
+                    found = true;
+                    break;
                 }
-        }
-        if(isSubset){
-            return true;
-        }
-        return false;
+            }
+            if(!found){
+                return false;
+            }
+        } 
+        return true;
     }
 
     /** Returns a string which is the same as the given string, with a space
