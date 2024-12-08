@@ -44,27 +44,25 @@ public class MyString {
     public static boolean subsetOf(String str1, String str2) {
         int len1 = str1.length();
         int len2 = str2.length();
-        int startIndex = 0;
+
         if(len1 == 0) {
             return true;
         }  
         if(len1 > len2){
             return false;
         }
-        for(int i=0; i<len1; i++){
+        int[] freq = new int[256];
+        for(int i=0; i<len2; i++){
+            freq[str2.charAt(i)]++;
+        }
+        for (int i = 0; i < str1.length(); i++) {
             char curChar1 = str1.charAt(i);
-            boolean found = false;
-            for(int j= startIndex; j<len2; j++){
-                if(str2.charAt(j) == curChar1){
-                    startIndex = j+1;
-                    found = true;
-                    break;
-                }
+        
+            if (freq[curChar1] == 0) {
+                return false;  
             }
-            if(!found){
-                return false;
-            }
-        } 
+            freq[curChar1]--;   
+        }    
         return true;
     }
 
