@@ -44,6 +44,8 @@ public class Scrabble {
 			DICTIONARY[NUM_OF_WORDS++] = in.readString().toLowerCase();
 		}
         System.out.println(NUM_OF_WORDS + " words loaded.");
+		System.out.println("Is 'train' in dictionary? " + isWordInDictionary("train"));
+
 	}
 
 	// Checks if the given word is in the dictionary.
@@ -114,7 +116,7 @@ public class Scrabble {
 			if(isWordInDictionary(input)) {
 				score += wordScore(input);
 				hand = MyString.remove(hand, input);
-				System.out.println(input + " earned " + wordScore(input) + " points. Total score: " + score + " points.");
+				System.out.println(input + " earned " + wordScore(input) + " points. Total score: " + score + " points\n");
 			} else {
 				System.out.println("Invalid word. Try again.");
 			}
@@ -156,7 +158,7 @@ public class Scrabble {
 
 	public static void main(String[] args) {
 		//// Uncomment the test you want to run
-		////testBuildingTheDictionary();  
+		testBuildingTheDictionary();  
 		////testScrabbleScore();    
 		////testCreateHands();  
 		////testPlayHands();
