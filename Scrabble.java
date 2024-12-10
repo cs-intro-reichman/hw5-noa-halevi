@@ -49,7 +49,6 @@ public class Scrabble {
 
 	// Checks if the given word is in the dictionary.
 	public static boolean isWordInDictionary(String word) {
-		word = word.toUpperCase();
 		for(int i=0; i<DICTIONARY.length; i++){
 			String curString = DICTIONARY[i];
 			if(curString != null && curString.equals(word)){
@@ -64,7 +63,6 @@ public class Scrabble {
 	// If the word includes the sequence "runi", adds 1000 points to the game.
 	public static int wordScore(String word) {
 		int startingScore = 0;
-		
 		for(int i=0; i<word.length(); i++){
 			char curChar = word.charAt(i);
 			int letterIndex = curChar - 'a';
