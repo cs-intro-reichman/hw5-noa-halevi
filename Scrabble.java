@@ -44,7 +44,6 @@ public class Scrabble {
 			DICTIONARY[NUM_OF_WORDS++] = in.readString().toLowerCase();
 		}
         System.out.println(NUM_OF_WORDS + " words loaded.");
-		System.out.println("Is 'train' in dictionary? " + isWordInDictionary("train"));
 
 	}
 
