@@ -64,6 +64,7 @@ public class Scrabble {
 	// If the word includes the sequence "runi", adds 1000 points to the game.
 	public static int wordScore(String word) {
 		int startingScore = 0;
+		word = word.toUpperCase();
 		for(int i=0; i<word.length(); i++){
 			char curChar = word.charAt(i);
 			int letterIndex = curChar - 'a';
@@ -109,6 +110,7 @@ public class Scrabble {
 			//// Replace the following break statement with code
 			//// that completes the hand playing loop
 			// if the user unput is "."- end the game
+			input = input.toUpperCase();
 			if (input.equals(".") ) {
 				break;
 			}
